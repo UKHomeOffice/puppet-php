@@ -58,7 +58,6 @@ define php::conf (
   $mode         = undef,
   $owner        = undef,
   $group        = undef,
-  $notify       = undef,
   $replace      = undef,
 
   $options_hash = undef,
@@ -110,7 +109,6 @@ define php::conf (
     mode    => $managed_mode,
     owner   => $managed_owner,
     group   => $managed_group,
-    notify  => $notify,
     replace => $replace,
   }
 
