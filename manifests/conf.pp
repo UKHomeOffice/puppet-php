@@ -69,11 +69,16 @@ define php::conf (
 
   include php
 
-  $managed_path = $path ? {
-    undef   => "${php::config_dir}/${name}",
-    default => $path,
+  $managed_module = $name ? {
+    /[^\s]+(?!\.ini.+$)/ => "${name}.ini",
+    defaut               => "$name"
   }
 
+  $managed_path = $path ? {
+    undef   => "${php::config_dir}/${managed_path}",
+    default => $path,
+  }
+  
   $managed_content = $content ? {
     undef   => $template ? {
       undef => undef,
