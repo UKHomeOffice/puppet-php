@@ -74,7 +74,7 @@ define php::conf (
   }
 
   $managed_path = $path ? {
-    undef   => "${php::config_dir}/${managed_path}",
+    undef   => "${php::config_dir}/${managed_module}",
     default => $path,
   }
   
