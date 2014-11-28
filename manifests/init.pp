@@ -172,7 +172,8 @@ class php (
   $log_dir             = params_lookup( 'log_dir' ),
   $log_file            = params_lookup( 'log_file' ),
   $port                = params_lookup( 'port' ),
-  $protocol            = params_lookup( 'protocol' )
+  $protocol            = params_lookup( 'protocol' ),
+  $php_augeas_hash        = {},
   ) inherits php::params {
 
   $bool_service_autorestart=any2bool($service_autorestart)
@@ -265,7 +266,7 @@ class php (
     }
   }
 
-
+  create_resources('php::augeas', php_augeas_hash)
   ### Include custom class if $my_class is set
   if $php::my_class {
     include $php::my_class
