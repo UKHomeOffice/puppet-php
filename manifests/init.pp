@@ -213,7 +213,7 @@ class php (
   }
 
   if ($php::source and $php::template) {
-    fail ('PHP: cannot set both source and template')
+    notice ('PHP: cannot set both source and template')
   }
   if ($php::source and $php::bool_augeas) {
     fail ('PHP: cannot set both source and augeas')
